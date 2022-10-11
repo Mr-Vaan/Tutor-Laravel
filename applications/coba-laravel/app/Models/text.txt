@@ -1,0 +1,33 @@
+--------------------------- Membuat Model di Terminal ----------------------------------
+
+php artisan make:model -m Category
+php artisan tinker
+$category = new Category
+$category->name = 'Programming' // sesuaikan yang ada di database mysql isinya 
+$category->slug = 'Programming' // sesuaikan yang ada di database mysql isinya
+
+Cara Buat NGESAVE :
+$category->save()
+
+
+
+Cara lain untuk mencari data :
+Post::where('category_id',1)->get()
+
+Cara untuk mencari Postingan Pertama :
+$post = Post::first()
+
+Refresh Seeder :
+php artisan migrate:fresh --seed
+
+
+// PostFactory(nama file)
+// -m -> untuk nambahin migrasinya.
+// -mf -> untuk menambahkan migrasi dan Factorynya.
+// -mfs -> untuk menambahkan migrasi, factory dan seedernya.
+php artisan make:factory PostFactory -mfs
+
+// Fungsi mt_rand() -> untuk membangkitkan bilangan random yang ada pada php.
+'title' => $this->faker->sentence(mt_rand(3, 6))
+
+
